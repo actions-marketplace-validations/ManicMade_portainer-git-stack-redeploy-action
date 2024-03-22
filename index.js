@@ -1,9 +1,9 @@
 const core = require("@actions/core")
 
-let portainerUrl = core.getInput("portainerUrl")
-const accessToken = core.getInput("accessToken")
-const stackId = parseInt(core.getInput("stackId"))
-const endpointId = parseInt(core.getInput("endpointId"))
+let portainerUrl = core.getInput("portainerUrl") || "https://portainer.mcec.io"
+const accessToken = core.getInput("accessToken") || "ptr_I39OAY4KlSjhOikXkw+DDNXqWT1dZ8a/39RYA5lqUoI="
+const stackId = parseInt(core.getInput("stackId")) || 40
+const endpointId = parseInt(core.getInput("endpointId")) || 7
 
 if (isNaN(stackId)) {
   core.setFailed("Stack ID must be integer")
