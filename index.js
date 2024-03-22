@@ -49,12 +49,12 @@ const req = client.request(`${portainerUrl}/api/stacks/${stackId}/git/redeploy` 
   }
 }, (res) => {
   if (res.statusCode !== 200) {
-    core.setFailed(res.statusMessage)
+    core.setFailed('Not 200 - ' + res.statusMessage)
     process.exit(2)
   }
 })
   .on("error", (error) => {
-    core.setFailed(error.message)
+    core.setFailed('Error - ' + error.message)
     process.exit(3)
   })
 
