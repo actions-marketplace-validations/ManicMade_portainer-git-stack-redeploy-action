@@ -40,7 +40,12 @@ const postData = JSON.stringify({
   prune: false,
 })
 
-const req = client.request(`${portainerUrl}/api/stacks/${stackId}/git/redeploy` + (isNaN(endpointId) ? "" : `?endpointId=${endpointId}`), {
+const url = `${portainerUrl}/api/stacks/${stackId}/git/redeploy` + (isNaN(endpointId) ? "" : `?endpointId=${endpointId}`)
+
+console.log("Hitting URL", url)
+console.log("With data:", postData)
+
+const req = client.request(url, {
   method: "PUT",
   headers: {
     "X-API-Key": accessToken,
